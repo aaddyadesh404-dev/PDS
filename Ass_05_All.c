@@ -168,7 +168,7 @@ int main(void)
     Q6
     
     char *s = (char *)malloc(1000*sizeof(char));
-    char *t = (char *)malloc(1000*sizeof(char));
+    int *t = (int *)malloc(1000*sizeof(int));
     scanf("%s", s);
     int len = strlen(s);
     int j = 0;
@@ -180,13 +180,18 @@ int main(void)
             count++;
             i++;
         }
-        t[j] = s[i];
-        t[j+1] = count + '0';
+        t[j] = (int)s[i];
+        t[j+1] = count;
         j = j+2;
     }
     
-    t[j] = '\0';
-    printf("%s\n", t);
+    for(int i = 0; i<j; i++)
+    {
+        if(i%2 == 0)
+            printf("%c", t[i]);
+        else
+            printf("%d", t[i]);
+    }
 
     */
 
